@@ -56,7 +56,7 @@ class Edoc extends \yii\db\ActiveRecord
             'to_gov' => Yii::t('app', 'ถึง'),
             'note' => Yii::t('app', 'การปฏิบัติ'),
             'status' => Yii::t('app', 'สถานะรับหนังสือ(ธุรการ)'),
-            'dep_status' => Yii::t('app', 'สถานะการรับหนังสือของกลุ่มงาน'),
+            'dep_status' => Yii::t('app', 'สถานะนำส่งกลุ่มงาน'),
         ];
     }
 
