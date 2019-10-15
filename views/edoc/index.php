@@ -11,6 +11,8 @@ use kartik\daterange\DateRangePicker;
 
 $this->title = Yii::t('app', 'ค้นหาสารบรรณหนังสือ');
 $this->params['breadcrumbs'][] = $this->title;
+// print_r($dataProvider);
+//                     die();
 ?>
 <div class="edoc-index">
 
@@ -22,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <br>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
@@ -31,10 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            //'id',
-            //'hw_id',
-            //'hw_detail',
             [
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-left'],
@@ -55,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => 'ลงวันที่',
                 'format'=>'html',
                 'value' => function ($data) {
-                    return $data->DateThai($data->date_doc); 
+                    return $data->DateThai($data->date_doc);
                 }
             ],
             [
@@ -74,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['class' => 'text-right'],
                 //'options' => ['style' => 'width:20px;'],
                 'attribute' => 'from_gov',
-                'header' => 'หน่วยงานที่ส่ง',
+                'header' => 'จากหน่วยงาน',
                 'format'=>['html'],
                 'value' => function($data) {
                     return empty($data['from_gov']) ? '-' : $data['from_gov'];
@@ -95,13 +92,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-right'],
                 //'options' => ['style' => 'width:20px;'],
-                'attribute' => 'note',
+                'attribute' => 'department_name',
                 'header' => 'การปฏิบัติ',
-                'format'=>['html'],
+                'format'=>['raw'],
                 'value' => function($data) {
-                    return empty($data['note']) ? '-' : $data['note'];
+                    return empty($data['department_name']) ? '-' : $data['department_name'];
                 }
             ],
+            
             [
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-center'],

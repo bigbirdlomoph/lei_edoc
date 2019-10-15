@@ -15,13 +15,22 @@ class EdocSearch extends Edoc
     /**
      * {@inheritdoc}
      */
+    
     public $q;
 
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at'], 'integer'],
-            [['q', 'serial_doc', 'date_doc', 'document_name', 'from_gov', 'to_gov', 'note', 'status', 'dep_status', 'created_at', 'updated_at'], 'safe'],
+            [
+                [
+                    'id', 'created_at', 'updated_at'
+                    ], 'integer'],
+            [
+                [
+                    'q', 'serial_doc', 'date_doc', 
+                    'document_name', 'from_gov', 'to_gov', 
+                    'note', 'status', 'dep_status', 'created_at', 'updated_at'
+                    ], 'safe'],
         ];
     }
 

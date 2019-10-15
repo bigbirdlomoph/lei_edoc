@@ -27,7 +27,7 @@ use app\models\MainDepartment;
 
                     <div class="row">
 
-                            <div class="col-md-2 col-xs-6">
+                            <div class="col-md-6 col-xs-6">
                                 <?= $form->field($model, 'serial_doc')->textInput(
                                     [
                                         'maxlength' => true,
@@ -35,12 +35,13 @@ use app\models\MainDepartment;
                                         ]) ?>
                                 </div>
                             
-                            <div class="col-md-3 col-xs-6">
+                            <div class="col-md-6 col-xs-6">
                                 <?= $form->field($model, 'date_doc')->widget(DatePicker::ClassName(),
                                     [
                                     'name' => 'check_issue_date', 
                                     'options' => ['placeholder' => 'ลงวันที่...'],
                                     'pluginOptions' => [
+                                        'autoclose' => true,
                                         'format' => 'yyyy-mm-dd',
                                         'todayHighlight' => true
                                     ]
@@ -115,7 +116,9 @@ use app\models\MainDepartment;
                             <div class="col-md-12 col-xs-12 col-lg-12">
                                 <?= 
                                     Html::submitButton(Yii::t('app', 'บันทึก'), 
-                                    ['class' => 'btn btn-primary btn-md',]) ?>
+                                    [
+                                        'class' => 'btn btn-primary btn-md',
+                                        ]) ?>
                             </div>
 
                         </div>

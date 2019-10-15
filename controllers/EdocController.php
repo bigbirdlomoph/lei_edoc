@@ -175,17 +175,18 @@ class EdocController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionPrintedoc()
+    public function actionPrintedoc($date1=null,$date2=null)
     {
-        // $date1 = date('Y-m-d'); //"2014-10-01";
-        // $date2 = date('Y-m-d');
+        $date1 = date('Y-m-d H:i:s'); //"2014-10-01";
+        $date2 = date('Y-m-d H:i:s');
         
-        // if (Yii::$app->request->isPost) {
-        //     $date1 = date('Y-m-d', strtotime($_POST['date1']));
-        //     $date2 = date('Y-m-d', strtotime($_POST['date2']));
-        // }
+        if (Yii::$app->request->isPost) {
+            //Yii::$app->request->post('date_range');
+            $date1 = date('Y-m-d H:i:s', strtotime($_POST['date1']));
+            $date2 = date('Y-m-d H:i:s', strtotime($_POST['date2']));
+        }
         
-        if ($date1 == NULL) {
+        if ($date1 == NULL && $date2 == NULL) {
                 $sql = "SELECT d.serial_doc, d.date_doc, d.document_name, d.from_gov, d.to_gov, d.note, '' as recipient
                         FROM e_doc d 
                         LEFT JOIN status_edoc s on s.status_id = d.`status`
@@ -197,16 +198,10 @@ class EdocController extends Controller
                         FROM e_doc d 
                         LEFT JOIN status_edoc s on s.status_id = d.`status`
                         LEFT JOIN dep_status_edoc ds on ds.dep_id = d.dep_status 
-                        WHERE d.dep_status=1 AND d.created_at = $date1";
+                        WHERE d.dep_status=1 and d.created_at BETWEEN '$date1' and '$date2'";
                 }
 
-        // $sql = "SELECT d.serial_doc, d.date_doc, d.document_name, d.from_gov, d.to_gov, d.note, '' as recipient
-        //                  FROM e_doc d 
-        //                  LEFT JOIN status_edoc s on s.status_id = d.`status`
-        //                  LEFT JOIN dep_status_edoc ds on ds.dep_id = d.dep_status 
-        //                  WHERE d.dep_status=1 ";
-
-                $serial_doc = Yii::$app->request->post('serial_doc');  
+                //$serial_doc = Yii::$app->request->post('serial_doc');  
         
         try {
             $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -238,6 +233,7 @@ class EdocController extends Controller
      * @return Edoc the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+    
     // protected function findModel($id, $serial_doc)
     // {
     //     if (($model = Edoc::findOne(['id' => $id, 'serial_doc' => $serial_doc])) !== null) {
