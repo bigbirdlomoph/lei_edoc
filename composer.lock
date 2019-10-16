@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08501992fc880c75c92769f7dc4721c5",
+    "content-hash": "3b4e8753704fd235db58088b122d124e",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -293,12 +293,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "98fec1ca655072b61f05659571cf4c812c79e763"
+                "reference": "0b7a84f93ca9b0fa0610a28bdc09a522d2f433f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/98fec1ca655072b61f05659571cf4c812c79e763",
-                "reference": "98fec1ca655072b61f05659571cf4c812c79e763",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/0b7a84f93ca9b0fa0610a28bdc09a522d2f433f4",
+                "reference": "0b7a84f93ca9b0fa0610a28bdc09a522d2f433f4",
                 "shasum": ""
             },
             "type": "library",
@@ -338,7 +338,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2019-10-08T13:34:38+00:00"
+            "time": "2019-10-14T14:35:09+00:00"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -2267,12 +2267,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "7619cd4baba8659dcd5c0295ed08978a6cda1d11"
+                "reference": "4435864625e025a6b5970cc628c6821f9aa600d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7619cd4baba8659dcd5c0295ed08978a6cda1d11",
-                "reference": "7619cd4baba8659dcd5c0295ed08978a6cda1d11",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/4435864625e025a6b5970cc628c6821f9aa600d8",
+                "reference": "4435864625e025a6b5970cc628c6821f9aa600d8",
                 "shasum": ""
             },
             "require": {
@@ -2359,7 +2359,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-10-08T13:14:34+00:00"
+            "time": "2019-10-15T08:29:39+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -2920,12 +2920,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "73192096ed649e2b3d7043a227aa94bd4d8be561"
+                "reference": "300a564096ce5ce90dfd12a27fc8bc7ecbec523d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/73192096ed649e2b3d7043a227aa94bd4d8be561",
-                "reference": "73192096ed649e2b3d7043a227aa94bd4d8be561",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/300a564096ce5ce90dfd12a27fc8bc7ecbec523d",
+                "reference": "300a564096ce5ce90dfd12a27fc8bc7ecbec523d",
                 "shasum": ""
             },
             "require": {
@@ -2962,7 +2962,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2019-10-07T21:19:09+00:00"
+            "time": "2019-10-09T14:06:15+00:00"
         },
         {
             "name": "guzzlehttp/psr7",

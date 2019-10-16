@@ -61,7 +61,25 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $command = Yii::$app->db->createCommand("SELECT count(*) as 'cc' FROM e_doc ");
+        $cc = $command->queryScalar();
+
+        $command = Yii::$app->db->createCommand("SELECT count(*) as 'todep' FROM e_doc WHERE dep_status=2 ");
+        $todep = $command->queryScalar();
+
+        $command = Yii::$app->db->createCommand("SELECT count(*) as 'holdon' FROM e_doc WHERE dep_status=1 ");
+        $holdon = $command->queryScalar();
+
+        $command = Yii::$app->db->createCommand("SELECT count(*) as 'today' FROM e_doc WHERE date(created_at) = DATE(NOW()) ");
+        $today = $command->queryScalar();
+
+        return $this->render('index', [
+            'cc' => $cc,
+            'todep' => $todep,
+            'holdon' => $holdon,
+            'today' => $today
+
+        ]);
     }
 
     /**
@@ -125,28 +143,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
-    public function actionEdocsum()
-    {
-        //$connection = Yii::$app->db;
-        $sql = "SELECT count(*) as 'cc' FROM e_doc";
-
-        try {
-            $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
-        } catch (\yii\db\Exception $e) {
-            throw new \yii\web\ConflictHttpException('sql error');
-        }
-
-        $dataProvider = new ArrayDataProvider([
-            'allModels' => $rawData,
-            'sort' => [
-                'attributes'=>['id']
-            ],
-        ]);
-
-        return $this->render('index',[
-            'dataProvider' => $dataProvider,
-            'sql' => $sql
-        ]);
-    }
+   
 }
