@@ -181,8 +181,8 @@ class EdocController extends Controller
 
     public function actionPrintedoc($date1=null,$date2=null)
     {
-        $date1 = date('Y-m-d H:i:s'); //"2014-10-01";
-        $date2 = date('Y-m-d H:i:s');
+        // $date1 = date('Y-m-d H:i:s'); //"2014-10-01";
+        // $date2 = date('Y-m-d H:i:s');
         
         if (Yii::$app->request->isPost) {
             //Yii::$app->request->post('date_range');

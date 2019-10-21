@@ -47,6 +47,7 @@ $datas = $dataProvider->getModels(); // get data from dataProvider
                     ],
                     //'summary'=>'',
                     'columns' => [
+                        [   'class' => '\kartik\grid\SerialColumn'  ],
                         [
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-center'],

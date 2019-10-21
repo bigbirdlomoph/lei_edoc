@@ -16,56 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 ?>
-    <!-- <div class="form-date">
-    <?php $form = ActiveForm::begin(); ?>
-        <div class="panel panel-heading col-sm-6 col-md-6">
-            <?=DateRangePicker::widget([
-                    'name'=>'date_range',
-                    'attribute'=>'date_range',
-                    'convertFormat'=>true,
-                    'startAttribute'=>'datetime_min',
-                    'endAttribute'=>'datetime_max',
-                    'language' => 'th',
-                    'options' => ['placeholder' => 'เลือกวันที่เริ่ม'],
-                    'pluginOptions'=>[
-                        'timePicker'=>true,
-                        'timePickerIncrement'=>30,
-                        'format'=>'yyyy-mm-dd H:i:s',
-                        'todayHighlight' => true
-                    ]
-                ]);?> 
-
-                <?= 
-                    DateRangePicker::widget([
-                        'name'=>'created_at',
-                        'attribute' => 'created_at',
-                        'useWithAddon'=>true,
-                        'convertFormat'=>true,
-                        'presetDropdown'=>true,
-                        'hideInput'=>true,
-                        'startAttribute' => 'created_at',
-                        'endAttribute' => 'created_at',
-                        'language' => 'th',
-                        'options' => ['placeholder' => 'เลือกวันที่เริ่ม'],
-                            'pluginOptions'=>[
-                                'locale'=>[
-                                    'format' => 'Y-m-d H:i:s',
-                            'autoclose' => true,
-                            'timePicker'=>true,
-                            'todayHighlight' => true
-                                ],
-                            ]
-                        ]);
-                ?>
-            </div>
-
-                    <div class="form-group panel panel-heading col-sm-4 col-md-4">
-                        <?= Html::submitButton('ค้นหา', ['class'=> 'btn btn-primary']); ?>
-                        </div>
-
-            <?php ActiveForm::end(); ?>
-        </div> -->
-
         <div class="form-date">
             <?php $form = ActiveForm::begin(); ?>
                 <div class="panel panel-heading col-sm-4 col-md-4">
@@ -128,6 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     //'summary'=>'',
                     'columns' => [
+                        [   'class' => '\kartik\grid\SerialColumn'  ],
                         [
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-left'],

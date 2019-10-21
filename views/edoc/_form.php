@@ -18,11 +18,11 @@ use app\models\MainDepartment;
 <div class="edoc-form">
 
     <?php $form = ActiveForm::begin([
-        'enableAjaxValidation'      => false, //เปิดการ validate ด้วย AJAX
-        'enableClientValidation'    => false, // validate ฝั่ง client เมื่อ submit หรือ เปลี่ยนค่า
-        'validateOnChange'          => false,// validate เมื่อมีการเปลี่ยนค่า
-        'validateOnSubmit'          => true,// validate เมื่อ submit ข้อมูล
-        'validateOnBlur'            => false,// validate เมื่อเปลี่ยนตำแหน่ง cursor ไป input อื่น
+        'enableAjaxValidation'      => false,   //เปิดการ validate ด้วย AJAX
+        'enableClientValidation'    => false,   // validate ฝั่ง client เมื่อ submit หรือ เปลี่ยนค่า
+        'validateOnChange'          => false,   // validate เมื่อมีการเปลี่ยนค่า
+        'validateOnSubmit'          => true,    // validate เมื่อ submit ข้อมูล
+        'validateOnBlur'            => false,   // validate เมื่อเปลี่ยนตำแหน่ง cursor ไป input อื่น
     ]); ?>
 
     <div class="container">
@@ -60,7 +60,7 @@ use app\models\MainDepartment;
                                     'placeholder' => 'เรื่องหนังสือ']) ?>
                                 </div>
 
-                            <div class="col-md-2 col-xs-6">
+                            <div class="col-md-3 col-xs-6">
                                 <?= $form->field($model, 'from_gov')->textInput([
                                     'maxlength' => true,
                                     'placeholder' => 'ชื่อย่อหน่วยงาน']) ?>
@@ -71,7 +71,7 @@ use app\models\MainDepartment;
                                     'maxlength' => true,
                                     'placeholder' => 'ถึงกลุ่มงาน...']) ?>
                                 </div> -->
-                            <div class="col-md-2 col-xs-6">
+                            <div class="col-md-3 col-xs-6">
                                 <?= $form->field($model, 'to_gov')->dropDownList([
                                     'นพ.สสจ.' => 'นพ.สสจ.'],
                                         ['prompt'=>'กรุณาเลือก...']); ?>
@@ -83,7 +83,7 @@ use app\models\MainDepartment;
                                     'placeholder' => 'กลุ่มงาน..']) ?>
                                 </div> -->
 
-                            <div class="col-md-2 col-xs-6">
+                            <div class="col-md-6 col-xs-6">
                                 <?= $form->field($model, 'note')->dropDownList(
                                     ArrayHelper::map(MainDepartment::find()->all(),
                                         'department_id',
