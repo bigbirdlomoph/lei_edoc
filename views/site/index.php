@@ -35,8 +35,8 @@ $this->title = 'สารบรรณ สสจ.เลย';
                 <div class="panel panel-default">
                     <div class="panel-heading"> 
                         <span class="info-box-icon">
-                            <i class="far fa-file-alt fa-3x"></i>
-                            </span>&nbsp; หนังสือทั้งหมด  
+                            <i class="far fa-file-alt fa-2x"></i>
+                            </span>&nbsp; ลงรับทั้งหมด 
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h3><?= $cc ?> เรื่อง </h3>
                         </div>
                     <div class="panel-heading"></div>
@@ -48,8 +48,8 @@ $this->title = 'สารบรรณ สสจ.เลย';
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <span class="info-box-icon">
-                            <i class="fas fa-edit fa-3x"></i>
-                            </span>&nbsp; หนังสือลงรับวันนี้  
+                            <i class="fas fa-edit fa-2x"></i>
+                            </span>&nbsp; ลงรับวันนี้  
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h3><?= $today ?> เรื่อง </h3>
                         </div>
                     <div class="panel-heading"> </div>
@@ -61,8 +61,8 @@ $this->title = 'สารบรรณ สสจ.เลย';
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <span class="info-box-icon">
-                            <i class="far fa-share-square fa-3x"></i>
-                            </span>&nbsp; นำส่งกลุ่มงานทั้งหมด 
+                            <i class="far fa-share-square fa-2x"></i>
+                            </span>&nbsp; นำส่งทั้งหมด 
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h3><?= $todep ?> เรื่อง </h3>
                         </div>
                     <div class="panel-heading"></div>
@@ -75,7 +75,7 @@ $this->title = 'สารบรรณ สสจ.เลย';
                     <div class="panel panel-warning">
                         <div class="panel-heading"> 
                             <span class="info-box-icon">
-                                <i class="fas fa-history fa-3x"></i>
+                                <i class="fas fa-history fa-2x"></i>
                                 </span>&nbsp; หนังสือตกค้าง 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h3><?= $holdon ?> เรื่อง </h3>
                             </div>

@@ -17,7 +17,13 @@ use app\models\MainDepartment;
 
 <div class="edoc-form">
 
-    <?php $form = ActiveForm::begin([]); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation'      => false, //เปิดการ validate ด้วย AJAX
+        'enableClientValidation'    => false, // validate ฝั่ง client เมื่อ submit หรือ เปลี่ยนค่า
+        'validateOnChange'          => false,// validate เมื่อมีการเปลี่ยนค่า
+        'validateOnSubmit'          => true,// validate เมื่อ submit ข้อมูล
+        'validateOnBlur'            => false,// validate เมื่อเปลี่ยนตำแหน่ง cursor ไป input อื่น
+    ]); ?>
 
     <div class="container">
 

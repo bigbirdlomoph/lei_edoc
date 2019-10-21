@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'pluginOptions' => [
                             'autoclose' => true,
                             'timePicker'=>true,
-                            'format' => 'yyyy-mm-dd H:i:s',
+                            'format' => 'yyyy-mm-dd HH:ii:s',
                             'todayHighlight' => true
                         ]
                     ]);?>
@@ -92,7 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'pluginOptions' => [
                                 'autoclose' => true,
                                 'timePicker'=>true,
-                                'format' => 'yyyy-mm-dd H:i:s',
+                                'format' => 'yyyy-mm-dd HH:ii:s',
                                 'todayHighlight' => true
                             ]
                     ]);?>

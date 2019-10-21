@@ -47,10 +47,12 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => FALSE,
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'ลงรับหนังสือ', 'url' => ['/edoc/create']],
-            ['label' => 'ค้นหาหนังสือ', 'url' => ['/edoc/index']],
+            ['label' => 'ลงรับ <i class="fas fa-download"></i>', 'url' => ['/edoc/create']],
+            ['label' => 'ค้นหา <i class="fas fa-search"></i>', 'url' => ['/edoc/index']],
+            ['label' => 'พิมพ์ใบลงรับ <i class="fas fa-print"></i>', 'url' => ['/edoc/printedoc']],
             ['label' => 'About', 'url' => ['/site/about']],
             // ['label' => 'Contact', 'url' => ['/site/contact']],
             // Yii::$app->user->isGuest ? (
@@ -81,9 +83,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container tsb f20p">
-        <p class="pull-left">&copy; eDoc SSJ LOEI <?= date('Y') ?></p>
+        <p class="pull-left">&copy; E-document Loei Provincial Health Office <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"> บาดถ่าย </p>
     </div>
 </footer>
 

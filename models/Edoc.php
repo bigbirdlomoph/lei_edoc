@@ -35,12 +35,22 @@ class Edoc extends \yii\db\ActiveRecord
     {
         return [
             [['serial_doc'], 'required'],
-            //[['serial_doc'], 'unique'], //ตรวจสอบค่าซ้ำ
+            [['serial_doc'], 'unique'], //ตรวจสอบค่าซ้ำ
             [['date_doc', 'created_at', 'updated_at'], 'safe'],
             [['serial_doc', 'document_name', 'from_gov', 'to_gov', 'note'], 'string', 'max' => 200],
             [['status', 'dep_status'], 'string', 'max' => 2],
         ];
     }
+
+    // public function validateSerialDoc()
+    // {
+        
+    //     $doc = Doc::findOne(['serial_doc' => $this->serial_doc]);
+
+    //     if($doc){
+    //         $this->addError('serial_doc', 'มีหนังสือเลขที่นี้แล้ว');
+    //     }
+    // }
 
     /**
      * {@inheritdoc}

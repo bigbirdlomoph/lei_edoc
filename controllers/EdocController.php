@@ -75,13 +75,17 @@ class EdocController extends Controller
         $model = new Edoc();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect([
-                // 'view', 
-                // 'id' => $model->id, 
-                // 'serial_doc' => $model->serial_doc]);
             return $this->redirect(['create']);
         }
 
+        // $request = Yii::$app->getRequest();
+        // if ($request->isPost && $request->post('ajax') !== null) {
+        //     $model->load(Yii::$app->request->post());
+        //     Yii::$app->response->format = Response::FORMAT_JSON;
+        //     $result = ActiveForm::validate($model);
+        //     return $result;
+        // }
+        
         return $this->render('create', [
             'model' => $model,
         ]);
