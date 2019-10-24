@@ -70,15 +70,31 @@ $this->params['breadcrumbs'][] = $this->title;
                     'floatHeaderOptions'=>[
                         'scrollingTop'=>'50'
                     ],
+                    'toolbar'=>[
+                        '{export}',
+                        '{toggleData}'
+                    ],
                     'pjax'=>true,
                     'panel'=>[
                         'before' => ' ',
                         'type'=>'primary', 
-                        'heading' => 'พิมพ์....' 
-                    ],
+                        'heading' => 'พิมพ์ใบลงรับ' 
+                    ],  
                     //'summary'=>'',
                     'columns' => [
-                        [   'class' => '\kartik\grid\SerialColumn'  ],
+                        //[   'class' => '\kartik\grid\SerialColumn'  ],
+                        [
+                            'headerOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-left'],
+                            //'options' => ['style' => 'word-wrap:break-word'],
+                            'attribute' => 'id',
+                            'header' => '#',
+                            'format' => 'html',
+                            'value' => function($data) { 
+                                return empty($data['id']) ? '-' : $data['id']; 
+                            },
+                            //'group' => true,
+                        ],
                         [
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-left'],
@@ -97,7 +113,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             //'options' => ['style' => 'word-wrap:break-word'],
                             'attribute' => 'date_doc',
                             'header' => 'ลงวันที่',
-                            'format' => 'html',
+                            'format' => ['date', 'php:d / m / Y'],
                             // 'value' => function ($data) {
                             //     return $data->DateThai($data['date_doc']);
                             // }
@@ -160,6 +176,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return empty($data['recipient']) ? '-' : $data['recipient']; 
                             }
                         ],
+                        // [
+                        //     'headerOptions' => ['class' => 'text-center'],
+                        //     'contentOptions' => ['class' => 'text-right'],
+                        //     //'options' => ['style' => 'word-wrap:break-word'],
+                        //     'attribute' => 'created_at',
+                        //     'header' => 'วันที่รับหนังสือ',
+                        //     'format' => ['date', 'php:d / m / Y'],
+                        //     'value' => function($data) { 
+                        //         return empty($data['created_at']) ? '-' : $data['created_at']; 
+                        //     },
+                        //     'group' => true,
+                        // ],
                     ]
                 ]);
                 ?>

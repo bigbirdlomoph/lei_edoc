@@ -73,7 +73,8 @@ use app\models\MainDepartment;
                                 </div> -->
                             <div class="col-md-3 col-xs-6">
                                 <?= $form->field($model, 'to_gov')->dropDownList([
-                                    'นพ.สสจ.' => 'นพ.สสจ.'],
+                                    'นพ.สสจ.' => 'นพ.สสจ.',
+                                    'ผจว.' => 'ผู้ว่าราชการจังหวัด'],
                                         ['prompt'=>'กรุณาเลือก...']); ?>
                                 </div>
                             
@@ -101,7 +102,8 @@ use app\models\MainDepartment;
                             <!-- <div class="col-md-4">
                                 <?= $form->field($model, 'dep_status')->dropDownList([
                                     '1' => 'รอดำเนินการ',
-                                    '2' => 'ดำเนินการแล้ว'],
+                                    '2' => 'ดำเนินการแล้ว',
+                                    '3' => 'ปฏิเสธการรับหนังสือ'],
                                         ['prompt'=>'กรุณาเลือกกลุ่มงาน...']); ?>
                                 </div> -->
                             

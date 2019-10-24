@@ -74,17 +74,22 @@ class EdocController extends Controller
     {
         $model = new Edoc();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['create']);
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['create']);
+        // }
+
+        if ($model->load(Yii::$app->request->post())) {
+
+           //แก้ไขตรงนี้
+            if(empty($_POST['dep_status'])){
+                  $model->dep_status = '1';
+             }
+
+            if ($model->save()) {
+                return $this->redirect(['create']);
+            }
         }
 
-        // $request = Yii::$app->getRequest();
-        // if ($request->isPost && $request->post('ajax') !== null) {
-        //     $model->load(Yii::$app->request->post());
-        //     Yii::$app->response->format = Response::FORMAT_JSON;
-        //     $result = ActiveForm::validate($model);
-        //     return $result;
-        // }
         
         return $this->render('create', [
             'model' => $model,
@@ -191,16 +196,20 @@ class EdocController extends Controller
         }
         
         if ($date1 == NULL && $date2 == NULL) {
-                $sql = "SELECT d.serial_doc, d.date_doc, d.document_name, d.from_gov, d.to_gov, d.note, '' as recipient
+                $sql = "SELECT d.id,d.serial_doc, d.date_doc, d.document_name, d.from_gov, d.to_gov, d.note, '' as recipient
+                        ,d.created_at, md.department_name
                         FROM e_doc d 
                         LEFT JOIN status_edoc s on s.status_id = d.`status`
+                        LEFT JOIN main_department md on md.department_id = d.note
                         LEFT JOIN dep_status_edoc ds on ds.dep_id = d.dep_status 
                         WHERE d.dep_status=1 ";
 		        } else {
 			        
-                $sql = "SELECT d.serial_doc, d.date_doc, d.document_name, d.from_gov, d.to_gov, d.note, '' as recipient
+                $sql = "SELECT d.id,d.serial_doc, d.date_doc, d.document_name, d.from_gov, d.to_gov, d.note, '' as recipient
+                        ,d.created_at, md.department_name
                         FROM e_doc d 
                         LEFT JOIN status_edoc s on s.status_id = d.`status`
+                        LEFT JOIN main_department md on md.department_id = d.note
                         LEFT JOIN dep_status_edoc ds on ds.dep_id = d.dep_status 
                         WHERE d.dep_status=1 and d.created_at BETWEEN '$date1' and '$date2'";
                 }
