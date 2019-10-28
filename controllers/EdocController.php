@@ -70,32 +70,32 @@ class EdocController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
     public function actionCreate()
     {
         $model = new Edoc();
-
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        //     return $this->redirect(['create']);
-        // }
-
         if ($model->load(Yii::$app->request->post())) {
 
-           //แก้ไขตรงนี้
-            if(empty($_POST['dep_status'])){
-                  $model->dep_status = '1';
-             }
+            // echo "<pre>";
+            // print_r(Yii::$app->request->post());
+            // echo "</pre>";
+            // die();
 
-            if ($model->save()) {
-                return $this->redirect(['create']);
+            //     // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            //     return $this->redirect(['create']);
+            // }
+
+            // ตรวจสอบสถานะการรับหนังสือเป็นค่าว่างหรือไม่
+            if(Yii::$app->request->post('dep_status' == NULL)){ 
+                $model->dep_status = Yii::$app->request->post('dep_status');
+                    } if ($model->save()) { 
+                return $this->redirect(['create']); }
             }
-        }
-
-        
+    
         return $this->render('create', [
             'model' => $model,
-        ]);
+        ]); 
     }
-
     /**
      * Updates an existing Edoc model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -121,13 +121,48 @@ class EdocController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) { // redirect view
-            return $this->redirect(['index', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) 
+            && $model->save()) 
+            { // redirect view
+                return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionUpdatedoc()
+    {
+        $sql="  SELECT d.id, d.serial_doc, d.date_doc, d.document_name
+                , d.from_gov, d.to_gov, md.department_name, d.dep_status, s.dep_status as department
+                from e_doc d
+                LEFT JOIN main_department md on md.department_id = d.note
+                LEFT JOIN dep_status_edoc s on s.dep_id = d.dep_status
+                WHERE d.dep_status='1'";
+
+        try {
+            $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
+        } catch (\yii\db\Exception $e) {
+            throw new \yii\web\ConflictHttpException('sql error');
+        }
+
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $rawData,
+            'sort' => [
+                'attributes' => [
+                    'id'
+                ],
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ],
+            ],
+        ]);
+
+        return $this->render('updatedoc',[
+            'dataProvider' => $dataProvider,
+            'sql' => $sql,
+            ]);
     }
 
     
