@@ -246,7 +246,7 @@ class EdocController extends Controller
                         LEFT JOIN status_edoc s on s.status_id = d.`status`
                         LEFT JOIN main_department md on md.department_id = d.note
                         LEFT JOIN dep_status_edoc ds on ds.dep_id = d.dep_status 
-                        WHERE d.dep_status=1 and d.created_at BETWEEN '$date1' and '$date2'";
+                        WHERE d.created_at BETWEEN '$date1' and '$date2'";
                 }
 
                 //$serial_doc = Yii::$app->request->post('serial_doc');  
