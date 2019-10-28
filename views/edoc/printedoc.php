@@ -54,6 +54,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php ActiveForm::end(); ?>
         </div>
+
+        <!-- btn update -->
+        <!-- <div class="form-group panel panel-heading col-sm-4 col-md-4">
+            <?php $form = ActiveForm::begin(); ?>
+                <p> <?= Html::button(Yii::t('app', 'Update'), ['class' => 'btn btn-warning pull-right','id'=>'btn-update']) ?> </p>
+            <?php ActiveForm::end(); ?>
+        </div> -->
     
     <!-- <?php echo Yii::$app->request->post('date_range'); ?> -->
 
@@ -85,10 +92,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         //[   'class' => '\kartik\grid\SerialColumn'  ],
                         [
                             'headerOptions' => ['class' => 'text-center'],
-                            'contentOptions' => ['class' => 'text-left'],
+                            'contentOptions' => ['class' => 'text-center'],
                             //'options' => ['style' => 'word-wrap:break-word'],
                             'attribute' => 'id',
-                            'header' => '#',
+                            'header' => 'เลขที่ลงรับ',
                             'format' => 'html',
                             'value' => function($data) { 
                                 return empty($data['id']) ? '-' : $data['id']; 
@@ -113,7 +120,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             //'options' => ['style' => 'word-wrap:break-word'],
                             'attribute' => 'date_doc',
                             'header' => 'ลงวันที่',
-                            'format' => ['date', 'php:d / m / Y'],
+                            'format' => ['date', 'php:d/m/Y'],
                             // 'value' => function ($data) {
                             //     return $data->DateThai($data['date_doc']);
                             // }
@@ -124,7 +131,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         [
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-left'],
-                            //'options' => ['style' => 'word-wrap:break-word'],
+                            'options' => ['style' => 'word-wrap:break-word'],
                             'attribute' => 'document_name',
                             'header' => 'เรื่อง',
                             'format' => 'html',
@@ -176,18 +183,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return empty($data['recipient']) ? '-' : $data['recipient']; 
                             }
                         ],
-                        // [
-                        //     'headerOptions' => ['class' => 'text-center'],
-                        //     'contentOptions' => ['class' => 'text-right'],
-                        //     //'options' => ['style' => 'word-wrap:break-word'],
-                        //     'attribute' => 'created_at',
-                        //     'header' => 'วันที่รับหนังสือ',
-                        //     'format' => ['date', 'php:d / m / Y'],
-                        //     'value' => function($data) { 
-                        //         return empty($data['created_at']) ? '-' : $data['created_at']; 
-                        //     },
-                        //     'group' => true,
-                        // ],
+                        [
+                            'headerOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-right'],
+                            //'options' => ['style' => 'word-wrap:break-word'],
+                            'attribute' => 'created_at',
+                            'header' => 'วันที่รับหนังสือ',
+                            'format' => ['date', 'php:d / m / Y'],
+                            'value' => function($data) { 
+                                return empty($data['created_at']) ? '-' : $data['created_at']; 
+                            },
+                            'group' => true,
+                        ],
                     ]
                 ]);
                 ?>

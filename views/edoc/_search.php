@@ -21,6 +21,7 @@ use kartik\daterange\DateRangePicker;
 
     <div class="input-group">
       <?= Html::activeTextInput($model, 'q',['class'=>'form-control','placeholder'=>'ค้นหาด้วย เลขหนังสือ หรือ เรื่อง...']) ?>
+      
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i> ค้นหา</button>
       </span>

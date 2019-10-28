@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Edoc */
@@ -18,6 +19,7 @@ $this->params['breadcrumbs'][] = [
     ];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
+
 <div class="edoc-update">
 
     <h4><?= Html::encode($this->title) ?></h4>

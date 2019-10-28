@@ -18,12 +18,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h3><?= Html::encode($this->title) ?></h3>
     <?php Pjax::begin(); ?>
-    <p>
-        <!-- <?= Html::a(Yii::t('app', 'ลงรับหนังสือ'), ['create'], ['class' => 'btn btn-success']) ?> -->
-    </p>
+    <p> <!-- <?= Html::a(Yii::t('app', 'ลงรับหนังสือ'), ['create'], ['class' => 'btn btn-success']) ?> --> </p>
     
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <br>
+    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
@@ -32,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            //['class' => '\kartik\grid\CheckboxColumn'],
             [
                 'headerOptions' => ['class' => 'text-center'],
                 'contentOptions' => ['class' => 'text-left'],
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-right'],
+                'contentOptions' => ['class' => 'text-left'],
                 //'options' => ['style' => 'width:30px;'],
                 'attribute' => 'date_doc',
                 'header' => 'ลงวันที่',
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-right'],
+                'contentOptions' => ['class' => 'text-left'],
                 //'options' => ['style' => 'width:20px;'],
                 'attribute' => 'document_name',
                 'header' => 'เรื่อง',
@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-right'],
+                'contentOptions' => ['class' => 'text-left'],
                 //'options' => ['style' => 'width:20px;'],
                 'attribute' => 'from_gov',
                 'header' => 'จากหน่วยงาน',
@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-right'],
+                'contentOptions' => ['class' => 'text-left'],
                 //'options' => ['style' => 'width:20px;'],
                 'attribute' => 'to_gov',
                 'header' => 'ถึง',
@@ -90,7 +90,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'headerOptions' => ['class' => 'text-center'],
-                'contentOptions' => ['class' => 'text-right'],
+                'contentOptions' => ['class' => 'text-left'],
                 //'options' => ['style' => 'width:20px;'],
                 'attribute' => 'department_name',
                 'header' => 'การปฏิบัติ',
@@ -123,5 +123,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
     <?php Pjax::end(); ?>
+    <?=
+        $this->registerJs("var keys = $('#grid').kartikGridView('getSelectedRows')");
+    ?>
 
 </div>
