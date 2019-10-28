@@ -112,8 +112,8 @@ use app\models\MainDepartment;
                                     ArrayHelper::map(DepStatusEdoc::find()->all(),
                                     'dep_id',
                                     'dep_status'),
-                                    [   'id'=>'dep_id',
-                                        'prompt'=>'กรุณาเลือก']); ?>
+                                        [   'id'=>'dep_id',
+                                            'prompt'=>'กรุณาเลือก']); ?>
                                 </div>
 
                             <div class="col-md-4">
